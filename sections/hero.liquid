@@ -1,0 +1,54 @@
+<div class="heroBannerContainer">
+	<div class="heroBannerBackground-{{ section.id }}" >
+		<h2 class="heroBannerTitle">{{ section.settings.hero-title }}</h2>
+		<a href="{{ section.settings.hero-cta-link }}" class="heroBannerCTA">{{ section.settings.hero-cta-text }}</a>
+	</div>
+</div>
+
+{% schema %}
+  {
+    "name": "Hero Banner",
+    "settings": [
+    	{
+        "id": "hero-title",
+        "type": "text",
+        "label": "Heading",
+        "default": "Hero Title"
+      },
+      {
+        "id": "hero-cta-text",
+        "type": "text",
+        "label": "Heading",
+        "default": "Shop Now"
+      },
+      {
+      "id": "hero-cta-link",
+      "type": "url",
+      "label": "Hero link"
+    },
+    {
+      "id": "hero-image",
+      "type": "image_picker",
+      "label": "Hero Image"
+    }
+    ],
+    "presets": [
+    {
+      "name": "Hero Banner",
+      "category": "Hero Banner"
+    }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
+
+<style>
+	.heroBannerBackground-{{ section.id }} {
+	background-image: url('{{ section.settings.hero-image | img_url: '2048x' }}');
+}
+</style>
